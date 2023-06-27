@@ -4,7 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- all javascript functions being inserted besides a few -->
   <script type="application/javascript" src="./assets/nonrel_functions.js"></script>
+  <script type="module" src="./assets/functions/box.mjs"></script>
+  <script type="module" src="./assets/functions/button_event.mjs"></script>
+  <script type="module" src="./assets/functions/calling_draw_f.mjs"></script>
+  <script type="module" src="./assets/functions/canvas_clear.mjs"></script>
+  <script type="module" src="./assets/functions/clear_button_helper.mjs"></script>
+  <script type="module" src="./assets/functions/fill_checking.mjs"></script>
+  <script type="module" src="./assets/functions/fp_setter.mjs"></script>
+  <script type="module" src="./assets/functions/opacity_check.mjs"></script>
+  <script type="module" src="./assets/functions/pentagon.mjs"></script>
+  <script type="module" src="./assets/functions/reset_attribute_helper.mjs"></script>
+  <script type="module" src="./assets/functions/reset_attribute.mjs"></script>
+  <script type="module" src="./assets/functions/reset_draw_selection.mjs"></script>
+  <script type="module" src="./assets/functions/return_function.mjs"></script>
+  <script type="module" src="./assets/functions/selected_drawing.mjs"></script>
+  <script type="module" src="./assets/functions/sidebar_update.mjs"></script>
+  <script type="module" src="./assets/functions/star.mjs"></script>
+  <script type="module" src="./assets/functions/update_draw_info.mjs"></script>
+
+  <script type="module" src="./assets/main.js"></script>
+
+  <!-- stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./stylesheets/reset.css">
   <link rel="stylesheet" href="./stylesheets/title.css">
@@ -170,7 +193,6 @@
   </div>
 
   <!-- these script tags are below cause they need html rendered to function. -->
-  <script type="application/javascript" src="./assets/functions.js"></script>
   <script>
     if (localStorage.getItem("howTo") === "false") {
       xOut();
