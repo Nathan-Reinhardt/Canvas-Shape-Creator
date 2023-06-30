@@ -4,7 +4,7 @@ import { resetDrawSelection } from './reset_draw_selection.mjs';
 import { clearButtonHelper } from './clear_button_helper.mjs';
 
 // when a button is clicked this occurs
-export const mainFunction = (htmlText) => {
+export const buttonFunction = (htmlText) => {
     var functionName = "";
 
     var currD = localStorage.getItem("CurrD");

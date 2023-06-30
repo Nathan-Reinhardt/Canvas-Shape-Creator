@@ -7,7 +7,8 @@ import { resetAttr } from './functions/reset_attribute.mjs';
 import { updateDrawInfo } from './functions/update_draw_info.mjs';
 import { returnFunction } from './functions/return_function.mjs';
 
-// functions that need to be initialized at the start
+// Import for Gulp to add to the bundle
+import { buttonFunction } from './functions/button_event.mjs';
 
 // if the user refreshes the page using buttons or refresh icon on browser
 window.onbeforeunload = function() {
