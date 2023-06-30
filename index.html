@@ -28,9 +28,9 @@
             <h1 id="current-drawing"></h1>
           </div>
           <div id="drawing-but-container">
-            <button id="drawing-1" onclick="buttonFunction(document.getElementById('drawing-1').textContent)">Drawing #1</button>
-            <button id="drawing-2" onclick="buttonFunction(document.getElementById('drawing-2').textContent)">Drawing #2</button>
-            <button id="drawing-3" onclick="buttonFunction(document.getElementById('drawing-3').textContent)">Drawing #3</button>
+            <button id="drawing-1">Drawing #1</button>
+            <button id="drawing-2">Drawing #2</button>
+            <button id="drawing-3">Drawing #3</button>
           </div>
         </div>
         <div id="big-shape-cont">
@@ -38,9 +38,9 @@
             <h1 id="current-selection"></h1>
           </div>
           <div id="button-container">
-            <button id="box" onclick="buttonFunction(document.getElementById('box').textContent)">Box</button>
-            <button id="pentagon" onclick="buttonFunction(document.getElementById('pentagon').textContent)">Pentagon</button>
-            <button id="star" onclick="buttonFunction(document.getElementById('star').textContent)">Star</button>
+            <button id="box">Box</button>
+            <button id="pentagon">Pentagon</button>
+            <button id="star">Star</button>
           </div>
         </div>
         <div id="big-slide-cont">
@@ -72,18 +72,18 @@
             </div>
             <div id="save-restore-container">
               <div id="save-container">
-                <button id="save-drawing" onclick="buttonFunction(document.getElementById('save-drawing').textContent)">Save Artwork</button>
+                <button id="save-drawing">Save Artwork</button>
                 <h1 id="has-saved"></h1>
               </div>
               <div id="restore-container">
                 <h1 id="has-loaded"></h1>
-                <button id="restore-drawing" onclick="buttonFunction(document.getElementById('restore-drawing').textContent)">Load Artwork</button>
+                <button id="restore-drawing">Load Artwork</button>
               </div>
             </div>
           </div>
         </div>
         <div id="clear-container">
-          <button id="clear-but" onclick="buttonFunction(document.getElementById('clear-but').textContent)">Clear</button>
+          <button id="clear-but">Clear</button>
         </div>
       </div>
       <div id="canvas-back">
@@ -172,7 +172,10 @@
   </div>
 
   <!-- these script tags are below cause they need html rendered to function. -->
-  <script>
+  <script src="./assets/bundle.js"></script>
+  <script type="module">
+    import { returnFunction } from './assets/functions/return_function.mjs';
+    // getting rid of the help how to prompt in front of the canvas
     if (localStorage.getItem("howTo") === "false") {
       xOut();
     }
@@ -274,6 +277,66 @@
       })
     }
   </script>
-  <script src="./assets/bundle.js"></script>
+
+  <!-- this module script is used to put event listeners on the buttons -->
+  <script type="module">
+    import { buttonFunction } from './assets/functions/button_event.mjs';
+
+    var drawing1 = document.getElementById('drawing-1');
+    var drawing2 = document.getElementById('drawing-2');
+    var drawing3 = document.getElementById('drawing-3');
+    var box = document.getElementById('box');
+    var pentagon = document.getElementById('pentagon');
+    var star = document.getElementById('star');
+    var clear = document.getElementById('clear-but');
+    var saveDrawing = document.getElementById('save-drawing');
+    var restoreDrawing = document.getElementById('restore-drawing');
+
+    if (drawing1) {
+      drawing1.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('drawing-1').textContent);
+      });
+    }
+    if (drawing2) {
+      drawing2.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('drawing-2').textContent);
+      });
+    }
+    if (drawing3) {
+      drawing3.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('drawing-3').textContent);
+      });
+    }
+    if (box) {
+      box.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('box').textContent);
+      });
+    }
+    if (pentagon) {
+      pentagon.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('pentagon').textContent);
+      });
+    } 
+    if (star) {
+      star.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('star').textContent);
+      });
+    }
+    if (clear) {
+      clear.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('clear-but').textContent);
+      });
+    }
+    if (saveDrawing) {
+      saveDrawing.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('save-drawing').textContent);
+      });
+    }
+    if (restoreDrawing) {
+      restoreDrawing.addEventListener('click', (e) => {
+        buttonFunction(document.getElementById('restore-drawing').textContent);
+      });
+    }
+  </script>
 </body>
 </html>

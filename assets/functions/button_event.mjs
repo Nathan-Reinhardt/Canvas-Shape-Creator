@@ -2,9 +2,11 @@
 import { resetAttr } from './reset_attribute.mjs';
 import { resetDrawSelection } from './reset_draw_selection.mjs';
 import { clearButtonHelper } from './clear_button_helper.mjs';
+import { returnFunction } from './return_function.mjs';
 
 // when a button is clicked this occurs
 export const buttonFunction = (htmlText) => {
+
     var functionName = "";
 
     var currD = localStorage.getItem("CurrD");
@@ -13,6 +15,7 @@ export const buttonFunction = (htmlText) => {
     var draw1 = document.getElementById("drawing-1");
     var draw2 = document.getElementById("drawing-2");
     var draw3 = document.getElementById("drawing-3");
+    
     // checking if the id has been changed of the button
     if (draw1 === null) {
         draw1 = document.getElementById("dis-d1");

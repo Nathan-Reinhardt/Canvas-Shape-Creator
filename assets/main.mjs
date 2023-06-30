@@ -7,9 +7,6 @@ import { resetAttr } from './functions/reset_attribute.mjs';
 import { updateDrawInfo } from './functions/update_draw_info.mjs';
 import { returnFunction } from './functions/return_function.mjs';
 
-// Import for Gulp to add to the bundle
-import { buttonFunction } from './functions/button_event.mjs';
-
 // if the user refreshes the page using buttons or refresh icon on browser
 window.onbeforeunload = function() {
     localStorage.setItem("refresh", "true");
@@ -71,33 +68,22 @@ if (localStorage.getItem("firstTime") === null) {
 // if a refresh has occured do this
 if (localStorage.getItem("refresh") === "true") {
     let setDrawingNum = localStorage.getItem("CurrD");
-    let button1 = document.getElementById("drawing-1");
-    let button2 = document.getElementById("drawing-2");
-    let button3 = document.getElementById("drawing-3");
+    var draw1 = document.getElementById("drawing-1");
+    var draw2 = document.getElementById("drawing-2");
+    var draw3 = document.getElementById("drawing-3");
 
-    if (button1 === null) {
-        button1 = document.getElementById("dis-d1");
+    // checking if the id has been changed of the button
+    if (draw1 === null) {
+        draw1 = document.getElementById("dis-d1");
     }
-    else if (button2 === null) {
-        button2 = document.getElementById("dis-d2");
+    else if (draw2 === null) {
+        draw2 = document.getElementById("dis-d2");
     }
-    else if (button3 === null) {
-        button3 = document.getElementById("dis-d3");
+    else if (draw3 === null) {
+        draw3 = document.getElementById("dis-d3");
     }
 
-    if (setDrawingNum === "D1") {
-        button1.id = "dis-d1";
-        button1.disabled = true;
-    }
-    else if (setDrawingNum === "D2") {
-        button2.id = "dis-d2";
-        button2.disabled = true;
-    }
-    else if (setDrawingNum === "D3") {
-        button3.id = "dis-d3";
-        button3.disabled = true;
-    }
-    else {
+    if (setDrawingNum !== "D1" && setDrawingNum !== "D2" && setDrawingNum !== "D3") {
         let output = document.getElementById("current-drawing");
         output.innerHTML = "No Drawing Selected!";
         updateDrawInfo(localStorage.getItem("CurrD"));
@@ -106,6 +92,19 @@ if (localStorage.getItem("refresh") === "true") {
     if (localStorage.getItem("hasLoaded") === "true") {
         document.getElementById("has-loaded").innerHTML = "Loaded!";
         localStorage.setItem("hasLoaded", "false");
+    }
+
+    if (draw1.id === "dis-d1") {
+        draw1.id = "drawing-1";
+        draw1.disabled = false;
+    }
+    if (draw2.id === "dis-d2") {
+        draw2.id = "drawing-2";
+        draw2.disabled = false;
+    }
+    if (draw3.id === "dis-d3") {
+        draw3.id = "drawing-3";
+        draw3.disabled = false;
     }
 
     resetAttr(setDrawingNum);
