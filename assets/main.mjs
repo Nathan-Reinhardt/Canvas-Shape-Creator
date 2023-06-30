@@ -83,6 +83,7 @@ if (localStorage.getItem("refresh") === "true") {
         draw3 = document.getElementById("dis-d3");
     }
 
+    // on page reload
     if (setDrawingNum !== "D1" && setDrawingNum !== "D2" && setDrawingNum !== "D3") {
         let output = document.getElementById("current-drawing");
         output.innerHTML = "No Drawing Selected!";

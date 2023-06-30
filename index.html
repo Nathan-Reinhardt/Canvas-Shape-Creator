@@ -192,49 +192,39 @@
 
     // cursor event listeners
     // getting mouse cursor positions
-
     const getCursorPositionDown = (canvas, event) => {
         const rect = canvas.getBoundingClientRect();
+        let clickstate = "D";
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
-
-        if (localStorage.getItem("CurrD") === "D1") {
-            localStorage.setItem("DD1X", x);
-            localStorage.setItem("DD1Y", y);
-        }
-
-        else if (localStorage.getItem("CurrD") === "D2") {
-            localStorage.setItem("DD2X", x);
-            localStorage.setItem("DD2Y", y);
-        }
-
-        else if (localStorage.getItem("CurrD") === "D3") {
-            localStorage.setItem("DD3X", x);
-            localStorage.setItem("DD3Y", y);
-        }
+        settingCoords(x, y, clickstate);
     }
 
     const getCursorPositionUp = (canvas, event) => {
         const rect = canvas.getBoundingClientRect();
+        let clickstate = "U";
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
-
-        if (localStorage.getItem("CurrD") === "D1") {
-            localStorage.setItem("DU1X", x);
-            localStorage.setItem("DU1Y", y);
-        }
-
-        else if (localStorage.getItem("CurrD") === "D2") {
-            localStorage.setItem("DU2X", x);
-            localStorage.setItem("DU2Y", y);
-        }
-
-        else if (localStorage.getItem("CurrD") === "D3") {
-            localStorage.setItem("DU3X", x);
-            localStorage.setItem("DU3Y", y);
-        }
-
+        settingCoords(x, y, clickstate);
         returnFunction();
+    }
+    
+    // helper function for getCursorPosition Functions
+    const settingCoords = (x, y, clickstate) => {
+      if (localStorage.getItem("CurrD") === "D1") {
+        localStorage.setItem("D" + clickstate + "1X", x);
+        localStorage.setItem("D" + clickstate + "1Y", y);
+      }
+
+      else if (localStorage.getItem("CurrD") === "D2") {
+        localStorage.setItem("D" + clickstate + "2X", x);
+        localStorage.setItem("D" + clickstate + "2Y", y);
+      }
+
+      else if (localStorage.getItem("CurrD") === "D3") {
+        localStorage.setItem("D" + clickstate + "3X", x);
+        localStorage.setItem("D" + clickstate + "3Y", y);
+      }
     }
 
     var bool = false;
