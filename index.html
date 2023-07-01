@@ -89,9 +89,9 @@
       <div id="canvas-back">
         <div id="nav-container">
           <div id="how-to-container">
-            <button id="no-how-to-but" onclick="pageTransfer(document.getElementById('how-to-but').textContent)">How To</button>
+            <button id="how-to-but" onclick="pageTransfer(document.getElementById('how-to-but').textContent)">How To</button>
           </div>
-          <div id="start-how-to-container">
+          <div id="no-start-how-to-container">
             <div id="inside-canv-cont">
               <button id="start-how-to-but" onclick="pageTransfer(document.getElementById('start-how-to-but').textContent)">How To</button>
               <button id="close-how-but" onclick="xOut()">X</button>
@@ -175,10 +175,6 @@
   <script src="./assets/bundle.js"></script>
   <script type="module">
     import { returnFunction } from './assets/functions/return_function.mjs';
-    // getting rid of the help how to prompt in front of the canvas
-    if (localStorage.getItem("howTo") === "false") {
-      xOut();
-    }
 
     // slider script
     var slider = document.getElementById("myRange");

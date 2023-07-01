@@ -14,6 +14,7 @@ window.onbeforeunload = function() {
 
 // null cases covered, first time visiting the website
 if (localStorage.getItem("firstTime") === null) {
+    // creating local storage key value default pairs
     var functionPicker = "0";
     localStorage.setItem("fP", functionPicker);
 
@@ -67,6 +68,15 @@ if (localStorage.getItem("firstTime") === null) {
 
 // if a refresh has occured do this
 if (localStorage.getItem("refresh") === "true") {
+    // makes the how to button appear in the center of the canvas if the user
+    // never presses on the red x for the how to button
+    if (localStorage.getItem("howTo") === "true") {
+        let firstHowToContainer = document.getElementById("no-start-how-to-container");
+        let howToButton = document.getElementById("how-to-but");
+        firstHowToContainer.id = "start-how-to-container";
+        howToButton.id = "no-how-to-but";
+    }
+
     let setDrawingNum = localStorage.getItem("CurrD");
     var draw1 = document.getElementById("drawing-1");
     var draw2 = document.getElementById("drawing-2");

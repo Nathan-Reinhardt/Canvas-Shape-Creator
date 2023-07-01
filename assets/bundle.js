@@ -590,6 +590,7 @@ window.onbeforeunload = function () {
 
 
 if (localStorage.getItem("firstTime") === null) {
+  // creating local storage key value default pairs
   var functionPicker = "0";
   localStorage.setItem("fP", functionPicker);
   var keys = ["checked", "lineWidth", "Save", "Restore", "CurrD", "lineColor", "fillColor", "downBool", "opacity", "D1Bol", "D2Bol", "D3Bol", "CurrD", "canvClearBol", "D1DrawFunction", "D2DrawFunction", "D3DrawFunction", "refresh", "DNChecked", "DNLWidth", "DNLColor", "DNFillColor", "D1fP", "D2fP", "D3fP", "D1Checked", "D2Checked", "D3Checked", "D1FillColor", "D2FillColor", "D3FillColor", "D1LWidth", "D2LWidth", "D3LWidth", "D1LColor", "D2LColor", "D3LColor", "firstSave", "howTo"];
@@ -621,6 +622,15 @@ if (localStorage.getItem("firstTime") === null) {
 
 
 if (localStorage.getItem("refresh") === "true") {
+  // makes the how to button appear in the center of the canvas if the user
+  // never presses on the red x for the how to button
+  if (localStorage.getItem("howTo") === "true") {
+    var firstHowToContainer = document.getElementById("no-start-how-to-container");
+    var howToButton = document.getElementById("how-to-but");
+    firstHowToContainer.id = "start-how-to-container";
+    howToButton.id = "no-how-to-but";
+  }
+
   var setDrawingNum = localStorage.getItem("CurrD");
   var draw1 = document.getElementById("drawing-1");
   var draw2 = document.getElementById("drawing-2");
@@ -632,7 +642,8 @@ if (localStorage.getItem("refresh") === "true") {
     draw2 = document.getElementById("dis-d2");
   } else if (draw3 === null) {
     draw3 = document.getElementById("dis-d3");
-  }
+  } // on page reload
+
 
   if (setDrawingNum !== "D1" && setDrawingNum !== "D2" && setDrawingNum !== "D3") {
     var _output = document.getElementById("current-drawing");
